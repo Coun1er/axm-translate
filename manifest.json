@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Axiom Translator",
+  "version": "1.0.0",
+  "description": "Автоперевод твитов, профилей и сообществ на axiom.trade — с сохранением разметки и ссылок",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["tabs"],
+  "host_permissions": [
+    "https://*.axiom.trade/*",
+    "https://translate.googleapis.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.axiom.trade/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
